@@ -1,0 +1,925 @@
+
+/* body{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    
+} */
+
+nav ul:hover{
+     border: 2px dashed ; 
+}
+nav ul:focus{
+     border: 2px dashed ;
+}
+nav ul{
+    list-style: none;
+}
+
+body{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+
+/* make sizing predictable across elements to avoid overflow from padding/borders */
+/* *, *::before, *::after {
+    box-sizing: border-box;
+} */
+
+nav{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+    background-color:#00274C;
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+
+
+ul a{
+    color: #FFCB05;
+}
+
+/* skip to main */
+.skip-main{
+    position: absolute;
+    top: -10000px;
+}
+
+/* header details */
+header{
+    background-color:#00274C;
+}
+/* header img{
+    width: 100%;
+    height: auto
+
+} */
+
+nav a.active{
+  color: #FFCB05; 
+  border: 2px dashed #00274C; /* underline indicator */
+  font-weight: bold;
+}
+
+
+
+/* index/home page */
+
+.hero-img{
+    max-width: 100%;
+    height: auto
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* Start section grid (cards) */
+.start-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    align-items: center;
+    margin-right: 5%;
+    margin-left: 5%;
+    /* background-color: #00B2A9; */
+}
+
+.start-grid li{
+    margin: 0;
+}
+
+.start-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #00B2A9;
+    border: 2px solid #00274C;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #00274C;
+    font-weight: 600;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+    box-shadow: 0 1px 2px #989C97;
+}
+
+.start-card:hover{
+    box-shadow: 0 10px 20px #00274C ;
+}
+
+.hero-img{
+    width: 100%;
+    height: auto;
+}
+
+/* .start{
+    background-color: #00274C;
+    
+} */
+.start ul{
+    list-style: none;
+    text-align: left;
+}
+
+.start h2{
+    color: #00274C;
+}
+
+.youtube-container iframe {
+        width: 100%;
+        height: auto;
+        border: none; /* Optional: remove iframe border */
+}
+.why-use ul{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+/* index resources */
+/* .inh3{
+    background-color: #FFCB05;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+h2{
+    background-color: #FFCB05;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+} */
+
+
+#resources ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0; /* remove default ul margins that can push layout */
+    width: 100%;
+    overflow-wrap: break-word;
+    list-style: none;
+    align-items: stretch;
+    box-sizing: border-box;
+    grid-auto-rows: 1fr; /* keep rows consistent */
+}
+
+.resources img{
+    width: 100%;
+    height: auto;
+
+}
+
+/* FAQ grid on Resume page: 4 columns */
+.faq-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Resume resources grid: 4 columns with a CTA spanning all columns */
+.resources-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 5%;
+}
+
+.resources-grid li{ display:flex; }
+
+.resource-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+   background-color: #702082;
+    color: #FFCB05;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+    width: 100%;
+}
+
+.resource-card:hover,
+.resource-card:focus{
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+}
+
+/* make the 5th item span all columns */
+.resources-grid li:nth-child(5){
+    grid-column: 1 / -1; /* spans across all columns */
+}
+.resources-grid li:nth-child(5) .resource-card{
+    text-align: center;
+}
+
+.resource-card h3{ margin: 0 0 0.5rem 0; }
+.resource-card p{ margin: 0; }
+
+.faq-card{
+    background: white;
+    border: 2px solid #2F65A7;
+    color: #2F65A7;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+    justify-content: space-evenly;
+    box-shadow: 0 5px 5px #00274C;
+    
+}
+
+.faq-card summary{
+    list-style: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-weight: 600;
+    outline: none;
+}
+
+/* hide default triangle/marker across browsers */
+.faq-card summary::-webkit-details-marker{ display:none; }
+.faq-card summary::marker{ display:none; }
+
+/* make the summary look like a full-card button */
+.faq-card summary{
+    display: block;
+    width: 100%;
+}
+
+/* animate the reveal of the details body */
+.faq-body{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 240ms ease;
+}
+.faq-card[open] .faq-body{
+    max-height: 300px; /* arbitrary large height to reveal content smoothly */
+}
+
+/* ensure cards are equal height in the grid */
+.faq-grid li{ display: flex; }
+.faq-card{ flex: 1 1 auto; display: flex; flex-direction: column; }
+.faq-card summary{ background: transparent; }
+
+.faq-card[open]{
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+}
+
+.faq-card summary:focus{
+    outline: 3px solid #FFCB05;
+    outline-offset: 3px;
+}
+
+.faq-body{
+    padding: 0.5rem;
+    border-top: 1px dashed rgba(0,0,0,0.08);
+}
+.resources img:hover{
+   filter: drop-shadow(2px 2px 15px rgba(0, 0, 0, 0.5));
+}
+
+.resources a{
+    text-align: center;
+}
+.resources li{
+    padding: 0; /* inner .card provides border and spacing */
+    display: block; /* ensure list items behave as grid children and don't shrink-wrap */
+}
+
+/* Allow grid/flex children to shrink below their content's intrinsic size to avoid overflow */
+.resources li, .resources .card {
+    min-width: 0;
+}
+
+.resources{
+    width: 100%;
+    overflow-x: hidden; /* defensive: hide any accidental horizontal overflow */
+}
+
+/* Card styles inside resources */
+.resources .card{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 2px solid #00274C;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    width: 100%; /* ensure card fills the grid cell */
+    
+}
+.card:hover{
+    box-shadow: 0 10px 20px #00274C ;
+}
+
+.star-grid .card h3{
+    text-emphasis: bold;
+    font-size: 30px;
+}
+
+
+.resources .card-image{
+    width: 100%;
+    aspect-ratio: 16 / 9; /* uniform thumbnail box */
+    overflow: hidden;
+}
+
+.resources .card-image img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* crop/cover to fill the box uniformly */
+}
+
+.resources .card-body{
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.resources .card-body a{
+    color: #00274C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.resources .card-body a:hover,
+.resources .card-body a:focus{
+    text-decoration: underline;
+}
+
+/* keyboard focus outlines for accessibility */
+.resources .card:focus-within{
+    outline: 3px solid #FFCB05;
+    outline-offset: 3px;
+}
+
+.resources .card a:focus{
+    outline: 2px dashed #00274C;
+    outline-offset: 2px;
+}
+
+.connect h2{
+    padding-top: 5%;
+    margin-top: auto;
+    margin-bottom:auto;
+    background-color: #FFCB05;
+}
+
+/* .connect{
+    border: 2px solid #00274C;
+    padding: 5% 0% 5% 0%;
+}
+.connect p{
+    border: 2px solid #00274C;
+} */
+
+/* networking page */
+.networking img{
+    width: 100%;
+    height: auto;
+
+}
+.connections img{
+    width: 100%;
+    height: auto;
+    max-width: 370px;
+}
+
+.networking{
+    background-color: #ececec;
+
+}
+.networking h3 ul{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+
+.networking h4 ul{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+
+.message{
+    background-color: lightblue;
+}
+
+.one{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+.two{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+.three{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+.four{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+.five{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+
+}
+.warm-lead ul{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
+}
+
+.connections h4{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; ;
+
+}
+.warm-lead ul a{
+    color: #00274C;
+}
+
+
+/* resume page */
+.resume h2{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+
+.resume p{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+
+.resume-writing{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    
+}
+
+.resume-writing ol{
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10%;
+    padding-right: 20px
+}
+.resume-resources{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    color: #702082;
+}
+/* .resume-resources a{
+    color: #00274C;
+} */
+.resume-card{
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10%;
+    padding-right: 20px;
+}
+
+.resume-card h3{
+    text-align: center;
+}
+
+.resume-faq{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+
+.resume-employer{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.resume-employer ol{
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10%;
+    padding-right: 20px
+}
+
+
+/* Star prep page fonts */
+.what-is-star img{
+    width: 100%;
+    height: auto;
+}
+.what-is-star h1{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.what-is-star h2{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.what-is-star h3{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.what-is-star p{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.what-is-star ul {
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.what-is-star li{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.nested-list {
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.nested-list a::after{
+    color: #702082;
+}
+
+/* star prep page general */
+.main-content h1{
+    background-color: #FFCB05;
+}
+
+.use-it img{
+    width: 100%;
+    height: auto;
+}
+.use-it a{
+    color: #00274C;
+}
+
+/*make star grid cards responsive and take up full width of container while still scaling text appropriately and adding a hover effect of a shadow*/
+.star-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    align-items: stretch;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.star-grid li{
+    margin: 0;
+}
+.star-grid .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px solid #00274C;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #00274C;
+    background-color: #FFCB05;
+    font-weight: 600;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+    box-shadow: 0 1px 2px #989C97;
+}
+.star-grid .card:hover{
+    box-shadow: 0 10px 20px #00274C ;
+}
+/*center the text in the star grid cards*/
+.star-grid .card h3, .star-grid .card p{
+    text-align: center;
+}
+
+.star-grid .card h3, .star-grid .card p{
+    margin: 0.5rem 0;
+}
+
+
+/* Utility helper to preview the grid at a mobile size (390px wide) */
+.star-grid ul{
+    max-width: 100%;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.star-grid .card{
+    padding: 0.5rem;
+    border-width: 1px;
+    background-color: #FFCB05;
+    color: #00274C;
+}
+
+
+
+/* general */
+p{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    font-size: 18px;
+}
+
+li{
+    font-size: 18px;
+}
+
+h1{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    text-align: center;
+    background-color: #FFCB05;
+    font-size: 32px;
+}
+
+h2{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    font-size: 24px;
+}
+h3{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    font-size: 20px;
+}
+
+.footer img{
+    max-width: 100%;
+    height: auto;
+}
+.footer{
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    /* border:2px solid #FFCB05; */
+    background-color: #ececec;
+    text-align: center;
+}
+
+a{
+    color: #00274C;
+}
+a::after{
+    color:#702082;
+}
+
+
+@media screen and (min-width: 1024px){
+    
+    /* #nav-side-bar{
+        display: flex;
+    } */
+
+    /* nav {
+        grid-template-columns: 1fr 1fr;
+    } */
+
+    nav{
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0px;
+        width: 275px;
+        /* height: 100%; this can be readded later*/ 
+        z-index: 5;
+        padding-left: 12px;
+        padding-right: 12px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-right: solid 1px #eee;
+        scrollbar-width: none;
+        background-color: #fff;
+
+    }
+    /* .nav ul:first-child{
+        width: 100%;
+        height: auto;
+    } */
+
+    /* div h1{
+        border: 5px solid #00274C;
+    } */
+    /* body { 
+        margin-left: 20px;
+        margin-right: 20px;
+    } */
+
+    /* footer, footer p {
+        margin: 20px 20px 0px 20px;
+    } */
+    
+    
+    .hero-img{
+        grid-column: 1/-1;
+        border-radius: 2%;
+    }
+    
+
+    #navBar img{
+        max-width: 100%;
+    }
+
+    #navBar a {
+        display: block;
+        margin: 10px 0px 10px 0px;
+    }
+
+
+    /* Index page  */
+
+    #main-container {
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+
+    }
+
+    #main-content{
+        grid-column: 2/span 1;
+    }
+
+    /* iframe{ 
+        grid-column: 2/span 1;
+    } */
+
+    #why-use, #start, #welcome{
+        grid-column: 2/ span 1;
+    }
+    
+    #start-grid{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #connect{ 
+        grid-column: 2/span 1;
+    }
+
+    .welcome .hero-img{
+        grid-column: 2/span 1;
+    }
+    
+
+    /* Slightly taller cards and wider thumbnails on large screens */
+    .resources .card {
+        min-height: 220px;
+    }
+
+    .resources .card-image{
+        aspect-ratio: 4 / 3;
+    }
+
+    #popular-resources{
+        grid-column: 2/span 1;
+    }
+    #card{
+        max-width: 50%;
+    }
+
+
+
+
+
+
+
+
+    /* Networking page  */
+     .why-use, .start, .connect p {
+        margin: 0px 24px 0px 24px;
+    }
+
+    .container{ 
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        align-items: end;
+
+    }
+    
+    .container h1{
+        grid-column: 1/ -1;
+    }
+
+
+    /* .container h1{
+        grid-column: 1/-1;
+    } */
+
+    .connections-one{
+        grid-column: 2/ -1;
+    }
+    
+    
+    .networking{
+        grid-column: 2/ span 1;
+    }
+
+    h3, h4, p, li {
+        grid-column: 2/ span 1;
+    }
+
+    .warm-lead, .cold-lead, .cold-lead ul{ 
+        grid-column: 2/ span 1;
+    }
+
+    .one, .two, .three, .four, .five{
+        grid-column: 2/ span 1;
+    }
+    
+    .connections, .cold-lead , .warm-lead {
+        grid-column: 2/span 1;
+    }
+   .message{
+    grid-column: 1/-1
+   }
+
+
+   /* Resume page */
+
+    .container{ 
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        align-items: end;
+
+    }
+   
+    
+    .resume, .resume-writing, .resume-resources, .resources-grid {
+        grid-column: 2/span 1;
+    }
+
+    .resume-faq, .resume-employer{
+        grid-column: 2/span 1;
+    }
+
+    /* STAR page */
+    
+    #main-content {
+        grid-column: 1/-1;
+    }
+
+    #star, #use-star {
+        grid-column: 2/span 1;
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /* https://mukundkumra.medium.com/create-a-responsive-hamburger-menu-with-html-and-css-a-step-by-step-tutorial-c63e44fcee2e where I got code below */
+    /* .checkbtn{
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;              
+    } */
+
+    /* .nav-mobile {
+        display: none;
+    } */
+    
+    /* #check:checked ~ .topnav {
+         display: none;
+        } */
+
+/* 
+
+    .topnav {
+        position: absolute;
+        top: 4.5rem;
+        left: 0;
+        /* background: #222831; */
+        /* z-index: 1;
+        width: 200px;
+    } */
+    /* .topnav.responsive a {
+        color: #fff;
+        padding: 1rem 1.5rem;
+        display: block;
+        float: none;
+        text-align: left;
+    
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+  } */ 
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
