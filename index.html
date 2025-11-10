@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/html5reset.css"> This is messing up my html. I'm going to fix it in the next version. -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>MSI Career Development Resource Hub</title>
 </head>
 <body>
   <a class = skip-main id="skip-link" href = "#main-content" aria-label="Skip to main content">Skip to Main Content</a>
     <header>
-      <!-- <script src="myScript.js"></script> -->
         <nav class="topnav" id="navBar">
           <input type="checkbox" id="check">
            <label for="check" class="checkbtn">
-           <i class="fas-fa-bars"></i>
            </label>
+           <div id="navLinks">
         <img src="UMSI_sig-marketing-U.png" alt="UMSI Logo">
 			    <form>
 			    <label for="searchQuery" class="hidden">Search:</label>
@@ -26,6 +23,7 @@
             <a href = "resume.html" aria-label="Go to Resumes page">Resumes</a>
             <a href="networking-connections.html" aria-label="Go to Networking and Connections page">Networking & Connections</a>
             <a href = "star-prep.html" aria-label="Go to STAR Preparation page">STAR Preparation</a>
+           </div>
         </nav>
     </header>
 
@@ -122,6 +120,12 @@
     <footer class="footer">
 		  <img src="UMSI_sig-marketing-U.png" alt="UMSI Logo Horizontal">
         <p>University of Michigan School of Information | <a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office </a></p>
-        </footer>
+        <p>© Copyrights <span id="year"></span> by the University of Michigan. All rights reserved.</p>
+      </footer>
+    <script src="myScript.js"></script>
+  <script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+    
 </body>
 </html>

@@ -4,9 +4,12 @@
     
 } */
 
+
 nav ul:hover{
      border: 2px dashed ; 
+     box-shadow: #2F65A7;
 }
+
 nav ul:focus{
      border: 2px dashed ;
 }
@@ -23,28 +26,98 @@ body{
     box-sizing: border-box;
 } */
 
-nav{
+nav a{
     /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-    background-color:#00274C;
+    /* background-color:#00274C; */
     font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+    display: block;
+    margin: 4px 0;
+    text-decoration: emphasis;
+    padding: 12px 16px; 
 }
 
 
 ul a{
     color: #FFCB05;
+
 }
 
-/* skip to main */
+/* fix the .skip-main to only be visible when focused and be responsive to screen sizes and skip to the main content */
+
 .skip-main{
     position: absolute;
-    top: -10000px;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-main:focus {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: #00274C;
+    color: #FFCB05;
+    padding: 8px;
+    z-index: 100;
+}
+
+/* 404 error page styles https://www.geeksforgeeks.org/web-templates/create-a-404-page-using-html-and-css/ */
+.error-container body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
+}
+.error-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h1 {
+    font-size: 5rem;
+    color: #2F65A7;
+}
+
+.error-container {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.error-container a {
+    text-decoration: none;
+    background-color: #2F65A7;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.error-container a:hover {
+    background-color: #FFCB05;
 }
 
 /* header details */
 header{
-    background-color:#00274C;
+    background-color:#ffffff ;
+    border-color: #FFCB05;
+    border-bottom: 5px solid #00274C;
+    padding: 12px 16px;
 }
+
 /* header img{
     width: 100%;
     height: auto
@@ -63,26 +136,27 @@ nav a.active{
 
 .hero-img{
     max-width: 100%;
-    height: auto
+    height: auto;
 }
+
 img{
     max-width: 100%;
     height: auto;
 }
 
-/* Start section grid (cards) */
+/* Start section that is a flex box responsive for different sizes */
 .start-grid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     padding: 0;
     list-style: none;
     margin: 0;
-    align-items: center;
+    align-items: stretch;
     margin-right: 5%;
     margin-left: 5%;
-    /* background-color: #00B2A9; */
 }
+
 
 .start-grid li{
     margin: 0;
@@ -93,11 +167,11 @@ img{
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: #00B2A9;
+    background: #00274C;
     border: 2px solid #00274C;
     border-radius: 8px;
     text-decoration: none;
-    color: #00274C;
+    color: #FFCB05;
     font-weight: 600;
     transition: box-shadow 180ms ease, transform 180ms ease;
     box-shadow: 0 1px 2px #989C97;
@@ -123,6 +197,7 @@ img{
 
 .start h2{
     color: #00274C;
+    padding: 12px 16px;
 }
 
 .youtube-container iframe {
@@ -178,29 +253,23 @@ h2{
 }
 
 /* Resume resources grid: 4 columns with a CTA spanning all columns */
-.resources-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    list-style: none;
-    padding: 0;
-    margin: 5%;
-}
 
-.resources-grid li{ display:flex; }
-
+.resources-grid li{ list-style: none; 
+    }
+/* Remove the grid and make it something that also looks good on mobile */
 .resource-card{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem;
     border: 2px solid white;
     border-radius: 8px;
     text-decoration: none;
     color: inherit;
-   background-color: #702082;
+    background-color: #00274C;
     color: #FFCB05;
     transition: box-shadow 180ms ease, transform 180ms ease;
-    width: 100%;
+    width: auto;
+    gap: 20px;
 }
 
 .resource-card:hover,
@@ -215,6 +284,13 @@ h2{
 }
 .resources-grid li:nth-child(5) .resource-card{
     text-align: center;
+}
+
+.resources-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
 }
 
 .resource-card h3{ margin: 0 0 0.5rem 0; }
@@ -287,7 +363,8 @@ h2{
     text-align: center;
 }
 .resources li{
-    padding: 0; /* inner .card provides border and spacing */
+    padding-right: 40px; /* inner .card provides border and spacing */
+    padding-bottom: 20px;
     display: block; /* ensure list items behave as grid children and don't shrink-wrap */
 }
 
@@ -348,6 +425,7 @@ h2{
     color: #00274C;
     font-weight: bold;
     text-decoration: none;
+    font-size: 4vw;
 }
 
 .resources .card-body a:hover,
@@ -466,7 +544,7 @@ h2{
 }
 .resume-resources{
     font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
-    color: #702082;
+    color: #00274C;
 }
 /* .resume-resources a{
     color: #00274C;
@@ -575,6 +653,7 @@ h2{
 /*center the text in the star grid cards*/
 .star-grid .card h3, .star-grid .card p{
     text-align: center;
+    font-size: 4vw;
 }
 
 .star-grid .card h3, .star-grid .card p{
@@ -601,27 +680,27 @@ h2{
 /* general */
 p{
     font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
-    font-size: 18px;
+    font-size: 4vw;
 }
 
 li{
-    font-size: 18px;
+    font-size: 4vw;
 }
 
 h1{
     font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
     text-align: center;
     background-color: #FFCB05;
-    font-size: 32px;
+    font-size: 8vw;
 }
 
 h2{
     font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
-    font-size: 24px;
+    font-size: 6vw;
 }
 h3{
     font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif;
-    font-size: 20px;
+    font-size: 5vw;
 }
 
 .footer img{
@@ -658,7 +737,7 @@ a::after{
         position: fixed;
         left: 0;
         top: 0px;
-        width: 275px;
+        width: 600px;
         /* height: 100%; this can be readded later*/ 
         z-index: 5;
         padding-left: 12px;
@@ -667,9 +746,9 @@ a::after{
         overflow-x: hidden;
         border-right: solid 1px #eee;
         scrollbar-width: none;
-        background-color: #fff;
-
+        background-color:cornsilk;
     }
+
     /* .nav ul:first-child{
         width: 100%;
         height: auto;
@@ -701,8 +780,11 @@ a::after{
     #navBar a {
         display: block;
         margin: 10px 0px 10px 0px;
+        font-size: 2vw;
     }
-
+    .hidden {
+        size: large;
+    }
 
     /* Index page  */
 
@@ -724,15 +806,10 @@ a::after{
         grid-column: 2/ span 1;
     }
     
-    #start-grid{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+
     
     #connect{ 
-        grid-column: 2/span 1;
+        grid-column: 1/-1;
     }
 
     .welcome .hero-img{
@@ -753,13 +830,8 @@ a::after{
         grid-column: 2/span 1;
     }
     #card{
-        max-width: 50%;
+        max-width: 100%;
     }
-
-
-
-
-
 
 
 
@@ -821,14 +893,38 @@ a::after{
         align-items: end;
 
     }
+
+    .container h1{
+        grid-column: 1/ -1;
+        padding: 40px 10px;
+    }
    
     
     .resume, .resume-writing, .resume-resources, .resources-grid {
         grid-column: 2/span 1;
     }
 
+    .resume-resources .resource-card h3{
+        text-align: center;
+    }
+    .resume-resources .resources-grid li{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .resume-resources a{
+        color: #00274C;
+        background-color: #FFCB05;
+        padding: 40px;
+    }
+
     .resume-faq, .resume-employer{
         grid-column: 2/span 1;
+    }
+    #faq-grid-id{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /* STAR page */
@@ -841,18 +937,17 @@ a::after{
         grid-column: 2/span 1;
     }
 
-    
+   
 
 
-
-
-
-
-
-
-
-
-
+/* make the checkbutton larger */
+   input[type="checkbox"] {
+        width: 40px;
+        height: 40px;
+    }
+    input[type="checkbox"]:checked + label {
+        font-size: 30px;
+    }
 
 
 
@@ -861,17 +956,13 @@ a::after{
 
 
       /* https://mukundkumra.medium.com/create-a-responsive-hamburger-menu-with-html-and-css-a-step-by-step-tutorial-c63e44fcee2e where I got code below */
-    /* .checkbtn{
-        font-size: 1.5rem;
-        color: white;
-        cursor: pointer;              
-    } */
+   
 
     /* .nav-mobile {
         display: none;
     } */
-    
-    /* #check:checked ~ .topnav {
+/*     
+    #check:checked ~ .topnav {
          display: none;
         } */
 

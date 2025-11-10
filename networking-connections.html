@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href=" css/html5reset.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -11,17 +11,21 @@
     <a class = skip-main id="skip-link" href = "#main-content" aria-label="Skip to main content">Skip to Main Content</a>
      <header>
         <nav class="topnav" id="navBar">
-            <!-- <div class="new-nav" id="navBar"> -->
-            <img src="UMSI_sig-marketing-U.png" alt="UMSI Logo">
-			<form>
+          <input type="checkbox" id="check">
+           <label for="check" class="checkbtn">
+           <i class="fas-fa-bars"></i>
+           </label>
+           <div id="navLinks">
+        <img src="UMSI_sig-marketing-U.png" alt="UMSI Logo">
+			    <form>
 			    <label for="searchQuery" class="hidden">Search:</label>
 			    <input class="menu-search" placeholder="Search..." name="live_global_search[query]">
-			    </form>
+          </form>
             <a href = "index.html" aria-label="Go to Home page">Home</a>
             <a href = "resume.html" aria-label="Go to Resumes page">Resumes</a>
             <a href="networking-connections.html" class="active" aria-label="Networking and Connections (current)">Networking & Connections</a>
             <a href = "star-prep.html" aria-label="Go to STAR Preparation page">STAR Preparation</a>
-            <!-- </div> -->
+          </div>
         </nav>
         </header>
 
@@ -116,9 +120,14 @@
    <footer class="footer">
 		  <img src="UMSI_sig-marketing-U.png" alt="UMSI Logo Horizontal">
         <p>University of Michigan School of Information | <a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office </a></p>
+        <p>© Copyrights <span id="year"></span> by the University of Michigan. All rights reserved.</p>
     </footer>
         <!-- Don't be shy! UMSI is here to help. Come to our drop-in office hours for <a href="https://docs.google.com/document/d/15rJNLcNy07dPRK7Uhg7uMsLKac37PNba2xybufrAbRA/edit?usp=sharing">Career Coaching.</a>  -->
-        
+    <script src="myScript.js"></script>
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>   
+
     
 </body>
 </html>
