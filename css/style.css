@@ -446,6 +446,7 @@ h2{
 
 .connect h2{
     padding-top: 5%;
+    padding-bottom: 5%;
     margin-top: auto;
     margin-bottom:auto;
     background-color: #FFCB05;
@@ -468,7 +469,7 @@ h2{
 .connections img{
     width: 100%;
     height: auto;
-    max-width: 370px;
+    /* max-width: 370px; */
 }
 
 .networking{
@@ -723,14 +724,6 @@ a::after{
 
 
 @media screen and (min-width: 1024px){
-    
-    /* #nav-side-bar{
-        display: flex;
-    } */
-
-    /* nav {
-        grid-template-columns: 1fr 1fr;
-    } */
 
     nav{
         align-items: center;
@@ -748,23 +741,6 @@ a::after{
         scrollbar-width: none;
         background-color:cornsilk;
     }
-
-    /* .nav ul:first-child{
-        width: 100%;
-        height: auto;
-    } */
-
-    /* div h1{
-        border: 5px solid #00274C;
-    } */
-    /* body { 
-        margin-left: 20px;
-        margin-right: 20px;
-    } */
-
-    /* footer, footer p {
-        margin: 20px 20px 0px 20px;
-    } */
     
     
     .hero-img{
@@ -791,7 +767,6 @@ a::after{
     #main-container {
         display: grid;
         grid-template-columns: 15% 70% 15%;
-
     }
 
     #main-content{
@@ -810,12 +785,20 @@ a::after{
     
     #connect{ 
         grid-column: 1/-1;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+    #connect p{
+        padding: 20px;
+    }
+    #connect h2{
+        padding: 5%;
     }
 
     .welcome .hero-img{
         grid-column: 2/span 1;
     }
-    
+
 
     /* Slightly taller cards and wider thumbnails on large screens */
     .resources .card {
@@ -831,8 +814,14 @@ a::after{
     }
     #card{
         max-width: 100%;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
+    #card.reveal {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 
     /* Networking page  */
@@ -937,7 +926,15 @@ a::after{
         grid-column: 2/span 1;
     }
 
-   
+   /* networking page */
+    .warm-lead h4, .cold-lead h4{
+        font-size: 5vw;
+    }
+        
+    
+
+
+
 
 
 /* make the checkbutton larger */
@@ -989,28 +986,4 @@ a::after{
         right: 0;
         top: 0;
   } */ 
-
-
-
-
-
-
-
-
-
-    }
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
+}
