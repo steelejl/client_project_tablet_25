@@ -112,7 +112,7 @@ ul a{
 
 /* header details */
 header{
-    background-color:#ffffff ;
+    background-color: #989C97;
     border-color: #FFCB05;
     border-bottom: 5px solid #00274C;
     padding: 12px 16px;
@@ -125,8 +125,8 @@ header{
 } */
 
 nav a.active{
-  color: #FFCB05; 
-  border: 2px dashed #00274C; /* underline indicator */
+  color: #00274C; /* active link color */
+  border: 2px dashed ; /* underline indicator */
   font-weight: bold;
 }
 
@@ -334,6 +334,7 @@ h2{
 }
 .faq-card[open] .faq-body{
     max-height: 300px; /* arbitrary large height to reveal content smoothly */
+    overflow: auto;
 }
 
 /* ensure cards are equal height in the grid */
@@ -461,65 +462,187 @@ h2{
 } */
 
 /* networking page */
-.networking img{
+.networking-grid{
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem auto 5rem;
+    padding-bottom: 1.5rem;
+    max-width: 1100px;
+    position: relative;
+    grid-column: 2;
+}
+
+@media (min-width: 1280px){
+    .networking-grid{
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+}
+
+.network-card{
+    background: #ffffff;
+    border: 2px solid #E5E7EB;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(24px);
+    z-index: 1;
+}
+
+.network-card.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.network-card:hover,
+.network-card:focus-within{
+    border-color: #2F65A7;
+    box-shadow: 0 20px 35px rgba(47, 101, 167, 0.25);
+}
+
+.card-toggle{
     width: 100%;
-    height: auto;
-
-}
-.connections img{
-    width: 100%;
-    height: auto;
-    /* max-width: 370px; */
-}
-
-.networking{
-    background-color: #ececec;
-
-}
-.networking h3 ul{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-
-.networking h4 ul{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-
-.message{
-    background-color: lightblue;
-}
-
-.one{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-.two{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-.three{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-.four{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-.five{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-
-}
-.warm-lead ul{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; 
-}
-
-.connections h4{
-    font-family: Roboto, Helvetica, Arial, Nimbus Sans L, sans-serif; ;
-
-}
-.warm-lead ul a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 20pt;
+    font-weight: 600;
     color: #00274C;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.card-toggle:focus-visible{
+    outline: 3px solid #FFCB05;
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+.card-icon{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    position: relative;
+    transition: background 200ms ease, color 200ms ease;
+}
+
+.card-icon::before{
+    content: "+";
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.network-card.is-open .card-icon{
+    background: #2F65A7;
+    color: #ffffff;
+}
+
+.network-card.is-open .card-icon::before{
+    content: "–";
+}
+
+.card-panel{
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 400ms ease, opacity 220ms ease, visibility 220ms ease;
+}
+
+.network-card.is-open .card-panel{
+    opacity: 1;
+    visibility: visible;
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.card-panel p{
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.card-panel figure{
+    margin: 1rem 0 0;
+}
+
+.card-panel figcaption{
+    font-size: 0.9rem;
+    color: #4B5563;
+    margin-top: 0.4rem;
+}
+
+.card-list{
+    list-style: disc;
+    margin-left: 1.25rem;
+    color: #1F2933;
+}
+
+.card-subsection{
+    border-left: 4px solid #FFCB05;
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.card-subsection h4{
+    margin-bottom: 0.35rem;
+    color: #00274C;
+}
+
+.card-subsection ul{
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.card-subsection a{
+    color: #2F65A7;
+    text-decoration: underline;
+}
+
+.message-example{
+    background: #F3F4F6;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    border: 1px solid #E5E7EB;
+}
+
+.message-example p{
+    margin-bottom: 0.75rem;
+}
+
+.message-tip{
+    font-style: italic;
+    color: #374151;
+    margin: 0;
+}
+
+.networking-reminder{
+    background: #00274C;
+    color: #FFCB05;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin: 0 auto 2rem;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .network-card,
+    .card-panel{
+        transition: none;
+    }
 }
 
 
@@ -539,7 +662,7 @@ h2{
 
 .resume-writing ol{
     display: grid;
-    gap: 10px;
+    gap: 30px;
     margin-bottom: 10%;
     padding-right: 20px
 }
@@ -570,7 +693,7 @@ h2{
 }
 .resume-employer ol{
     display: grid;
-    gap: 10px;
+    gap: 30px;
     margin-bottom: 10%;
     padding-right: 20px
 }
@@ -726,20 +849,60 @@ a::after{
 @media screen and (min-width: 1024px){
 
     nav{
-        align-items: center;
-        position: fixed;
-        left: 0;
-        top: 0px;
-        width: 600px;
-        /* height: 100%; this can be readded later*/ 
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(1100px, calc(100% - 2rem));
         z-index: 5;
-        padding-left: 12px;
-        padding-right: 12px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        border-right: solid 1px #eee;
-        scrollbar-width: none;
-        background-color:cornsilk;
+        padding: 0.75rem 1.5rem;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.96);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        align-items: center;
+    }
+
+    #navLinks{
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem 1rem;
+        width: 100%;
+        height: 200px;
+    }
+
+    #navLinks img{
+        max-width: 75%;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .checkbtn,
+    #check{
+        display: none;
+    }
+
+    main.container{
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 200px 1.5rem 0;
+    }
+
+    .networking-page main.container{
+        display: block;
+        padding-top: 230px;
+    }
+
+    .networking-page .hero-img,
+    .networking-page .learn,
+    .networking-page .networking-grid,
+    .networking-page .networking-reminder{
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     
@@ -749,17 +912,15 @@ a::after{
     }
     
 
-    #navBar img{
-        max-width: 100%;
+    #navBar a {
+        display: inline-block;
+        margin: 0;
+        font-size: 18pt;
+        padding: 0.5rem 0.75rem;
     }
 
-    #navBar a {
-        display: block;
-        margin: 10px 0px 10px 0px;
-        font-size: 2vw;
-    }
-    .hidden {
-        size: large;
+    .menu-search{
+        max-width: 220px;
     }
 
     /* Index page  */
@@ -812,17 +973,6 @@ a::after{
     #popular-resources{
         grid-column: 2/span 1;
     }
-    #card{
-        max-width: 100%;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    #card.reveal {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
 
     /* Networking page  */
      .why-use, .start, .connect p {
@@ -854,10 +1004,15 @@ a::after{
         grid-column: 2/ span 1;
     }
 
-    h3, h4, p, li {
+    h3, h4, p {
         grid-column: 2/ span 1;
     }
 
+    li{
+    grid-column: 2/ span 1;
+    padding-bottom: 40px;
+    padding-top: unset;
+    }
     .warm-lead, .cold-lead, .cold-lead ul{ 
         grid-column: 2/ span 1;
     }
@@ -915,6 +1070,40 @@ a::after{
         flex-direction: column;
         align-items: center;
     }
+    #faq-card-id{
+        width: 60%;
+        position: relative;
+        background-color: #f4f8ff;
+        border: 2px solid #00274C;
+        border-radius: 8px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+    .faq-card:hover {
+        background-color: #eaf2fb;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+    /* Arrow icon */
+    .faq-card::after {
+        content: "▼";
+        font-size: 0.9rem;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        color: #00274C;
+        transition: transform 0.3s ease;
+        }
+
+    /* When expanded */
+    .faq-card.active::after {
+        transform: translateY(-50%) rotate(180deg);
+        }
 
     /* STAR page */
     
